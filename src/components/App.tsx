@@ -9,29 +9,33 @@ let Button = function(){
     return <button id="calculate" key="calculate" className="btn vertspace" >Beräkna</button>
 }
 
-let InputField = function(props: any){
+export let InputField = function(props: any){
     return <div> 
         <span>{props.label}</span>
         <input id={props.keyName} key={props.keyName} className="form-control vertspace" ></input>
     </div>
 }
 
-let InputArea = function(){
+export let InputArea = function(props:any){
     return <div>
-        <InputField keyName="inweight" label="Vikt(kg)" /> 
-        <InputField keyName="incalorice" label="Kalorier" />
-        <InputField keyName="inmeals" label="Antal måltider per dag" />
+        <InputField inputValue={props.weightinput} keyName="inweight" label="Vikt(kg)" /> 
+        <InputField inputValue={props.calorisinput} keyName="incalorice" label="Kalorier" />
+        <InputField inputValue={props.mealsinput} keyName="inmeals" label="Antal måltider per dag" />
         </div>
 }
 
-export class App extends React.Component<{}> {
+export default class App extends React.Component {
+    constructor(props: any){
+        super(props);
+        this.state = {weightinput:"", calorisinput: "", mealsinput: ""};
+    }
     render() {
         return <div className='container'>
 
                     <h1>FeedCalculator</h1>
                 <div className='row'> 
                 <form>                 
-                    <InputArea />
+                    <InputArea inputState={this.state} />
                     <Button />                 
                     <ResultField />
                 </form>      

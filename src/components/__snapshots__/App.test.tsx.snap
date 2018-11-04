@@ -1,0 +1,45 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test the InputArea should return send down in text to the inputfields 1`] = `
+<div>
+  <div>
+    <span>
+      Vikt(kg)
+    </span>
+    <input
+      className="form-control vertspace"
+      id="inweight"
+    />
+  </div>
+  <div>
+    <span>
+      Kalorier
+    </span>
+    <input
+      className="form-control vertspace"
+      id="incalorice"
+    />
+  </div>
+  <div>
+    <span>
+      Antal måltider per dag
+    </span>
+    <input
+      className="form-control vertspace"
+      id="inmeals"
+    />
+  </div>
+</div>
+`;
+
+exports[`Test the InputField should return a container with props set container 1`] = `
+<div>
+  <span>
+    testlbl
+  </span>
+  <input
+    className="form-control vertspace"
+    id="testkey"
+  />
+</div>
+`;

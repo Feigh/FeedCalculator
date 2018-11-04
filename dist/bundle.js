@@ -147,7 +147,7 @@ exports = module.exports = __webpack_require__(/*! ../../node_modules/css-loader
 
 
 // module
-exports.push([module.i, ".vertspace {\n  margin-top: 10px; }\n", ""]);
+exports.push([module.i, "vertspace {\n  margin-top: 10px; }\n", ""]);
 
 // exports
 
@@ -843,8 +843,9 @@ var InputArea = function () {
 };
 var App = /** @class */ (function (_super) {
     __extends(App, _super);
-    function App() {
-        return _super !== null && _super.apply(this, arguments) || this;
+    function App(props) {
+        return _super.call(this, props) || this;
+        // this.state = {weightinput:"", calorisinput: "", mealsinput: ""};
     }
     App.prototype.render = function () {
         return React.createElement("div", { className: 'container' },
@@ -857,7 +858,7 @@ var App = /** @class */ (function (_super) {
     };
     return App;
 }(React.Component));
-exports.App = App;
+exports.default = App;
 ;
 
 
@@ -908,7 +909,7 @@ var ReactDOM = __webpack_require__(/*! react-dom */ "react-dom");
 var App_1 = __webpack_require__(/*! ./components/App */ "./src/components/App.tsx");
 __webpack_require__(/*! bootstrap/dist/css/bootstrap.min.css */ "./node_modules/bootstrap/dist/css/bootstrap.min.css");
 __webpack_require__(/*! ./index.css */ "./src/index.css");
-ReactDOM.render(React.createElement(App_1.App, null), document.getElementById("root"));
+ReactDOM.render(React.createElement(App_1.default, null), document.getElementById("root"));
 
 
 /***/ }),
