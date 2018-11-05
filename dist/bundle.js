@@ -147,7 +147,7 @@ exports = module.exports = __webpack_require__(/*! ../../node_modules/css-loader
 
 
 // module
-exports.push([module.i, "vertspace {\n  margin-top: 10px; }\n", ""]);
+exports.push([module.i, ".vertspace {\n  margin-top: 10px; }\n", ""]);
 
 // exports
 
@@ -824,37 +824,56 @@ var __extends = (this && this.__extends) || (function () {
 Object.defineProperty(exports, "__esModule", { value: true });
 var React = __webpack_require__(/*! react */ "react");
 __webpack_require__(/*! ./App.css */ "./src/components/App.css");
-var ResultField = function () {
-    return React.createElement("textarea", { id: "result", key: "result", className: "md-textarea form-control vertspace", rows: 3 });
+var ResultField = function (props) {
+    return React.createElement("textarea", { id: "result", key: "result", className: "md-textarea form-control vertspace", value: props.resultState, rows: 3 });
 };
-var Button = function () {
-    return React.createElement("button", { id: "calculate", key: "calculate", className: "btn vertspace" }, "Ber\u00E4kna");
+var Button = function (props) {
+    return React.createElement("button", { id: "calculate", key: "calculate", onClick: props.onClick, className: "btn vertspace" }, "Ber\u00E4kna");
 };
-var InputField = function (props) {
+exports.InputField = function (props) {
     return React.createElement("div", null,
         React.createElement("span", null, props.label),
-        React.createElement("input", { id: props.keyName, key: props.keyName, className: "form-control vertspace" }));
+        React.createElement("input", { id: props.keyName, key: props.keyName, value: props.inputValue, onChange: props.onChange, className: "form-control vertspace" }));
 };
-var InputArea = function () {
+exports.InputArea = function (props) {
     return React.createElement("div", null,
-        React.createElement(InputField, { keyName: "inweight", label: "Vikt(kg)" }),
-        React.createElement(InputField, { keyName: "incalorice", label: "Kalorier" }),
-        React.createElement(InputField, { keyName: "inmeals", label: "Antal m\u00E5ltider per dag" }));
+        React.createElement(exports.InputField, { inputValue: props.inputState.weightinput, onChange: props.onWeightFieldChange, keyName: "weightinput", label: "Vikt(kg)" }),
+        React.createElement(exports.InputField, { inputValue: props.inputState.calorisinput, onChange: props.onCalorisFieldChange, keyName: "calorisinput", label: "Kalorier" }),
+        React.createElement(exports.InputField, { inputValue: props.inputState.mealsinput, onChange: props.onMealsFieldChange, keyName: "mealsinput", label: "Antal m\u00E5ltider per dag" }));
 };
 var App = /** @class */ (function (_super) {
     __extends(App, _super);
     function App(props) {
-        return _super.call(this, props) || this;
-        // this.state = {weightinput:"", calorisinput: "", mealsinput: ""};
+        var _this = _super.call(this, props) || this;
+        _this.state = { weightinput: "", calorisinput: "", mealsinput: "", result: 0 };
+        _this.onWeightFieldChange = _this.onWeightFieldChange.bind(_this);
+        _this.onCalorisFieldChange = _this.onCalorisFieldChange.bind(_this);
+        _this.onMealsFieldChange = _this.onMealsFieldChange.bind(_this);
+        _this.onCalculate = _this.onCalculate.bind(_this);
+        return _this;
     }
+    App.prototype.onWeightFieldChange = function (event) {
+        this.setState(({ weightinput: event.currentTarget.value }));
+    };
+    App.prototype.onCalorisFieldChange = function (event) {
+        this.setState(({ calorisinput: event.currentTarget.value }));
+    };
+    App.prototype.onMealsFieldChange = function (event) {
+        this.setState(({ mealsinput: event.currentTarget.value }));
+    };
+    App.prototype.onCalculate = function (event) {
+        event.preventDefault();
+        var ress = (((Number(this.state.weightinput) * 30) + 70) / Number(this.state.calorisinput) / Number(this.state.mealsinput));
+        this.setState({ result: ress });
+    };
     App.prototype.render = function () {
         return React.createElement("div", { className: 'container' },
             React.createElement("h1", null, "FeedCalculator"),
             React.createElement("div", { className: 'row' },
                 React.createElement("form", null,
-                    React.createElement(InputArea, null),
-                    React.createElement(Button, null),
-                    React.createElement(ResultField, null))));
+                    React.createElement(exports.InputArea, { inputState: this.state, onWeightFieldChange: this.onWeightFieldChange, onCalorisFieldChange: this.onCalorisFieldChange, onMealsFieldChange: this.onMealsFieldChange }),
+                    React.createElement(Button, { onClick: this.onCalculate }),
+                    React.createElement(ResultField, { resultState: this.state.result }))));
     };
     return App;
 }(React.Component));
