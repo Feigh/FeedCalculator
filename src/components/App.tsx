@@ -1,6 +1,6 @@
 import * as React from "react";
 import "./App.css";
-import { func } from "prop-types";
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 interface IProps { }
 interface IState { weightinput:string, calorisinput:string, mealsinput:string, result:number}

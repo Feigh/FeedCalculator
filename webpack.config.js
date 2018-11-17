@@ -1,3 +1,11 @@
+var HtmlWebpackPlugin = require('html-webpack-plugin');
+var HtmlWebpackPluginConfig = new HtmlWebpackPlugin({
+    template: __dirname + '/index.html',
+    filename: 'index.html',
+    inject: 'body'
+});
+var path = require('path');
+
 module.exports = {
     entry: "./src/index.tsx",
     output: {
@@ -19,8 +27,5 @@ module.exports = {
             { test: /\.css$/, use: ['style-loader', 'css-loader', 'sass-loader'] } 
         ]
     },
-    externals: {
-        "react": "React",
-        "react-dom": "ReactDOM"
-    }
+    plugins: [HtmlWebpackPluginConfig]
 };

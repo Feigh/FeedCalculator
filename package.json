@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.tsx",
   "scripts": {
-    "start": "webpack --config webpack.config.js --mode development && npm run open && npm ",
+    "start": "webpack --config webpack.config.js --mode development && npm run open",
+    "deploy": "",
     "open": "concurrently \"http-server -a localhost -p 1234\" \"open http://localhost:1234/index.html",
     "test": "jest"
   },
@@ -49,6 +50,7 @@
     "@types/react": "^16.4.18",
     "@types/react-dom": "^16.0.9",
     "bootstrap": "^4.1.3",
+    "html-webpack-plugin": "^3.2.0",
     "react": "^16.6.0",
     "react-dom": "^16.6.0"
   }
