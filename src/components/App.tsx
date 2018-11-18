@@ -55,7 +55,7 @@ export default class App extends React.Component<IProps, IState> {
     render() {
         return <div className='container'>
 
-                    <h1>Mat Beräknare</h1>
+                    <h1>Hej Mat Beräknare</h1>
                 <div className='row'> 
                 <form>                 
                     <InputArea inputState={this.state} 
