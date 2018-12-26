@@ -12,6 +12,7 @@
     "moduleFileExtensions": [
       "ts",
       "tsx",
+      "jsx",
       "js"
     ],
     "transform": {
@@ -48,8 +49,10 @@
   "dependencies": {
     "@types/react": "^16.4.18",
     "@types/react-dom": "^16.0.9",
+    "@types/react-select": "^2.0.11",
     "bootstrap": "^4.1.3",
     "react": "^16.6.0",
-    "react-dom": "^16.6.0"
+    "react-dom": "^16.6.0",
+    "react-select": "^2.1.2"
   }
 }

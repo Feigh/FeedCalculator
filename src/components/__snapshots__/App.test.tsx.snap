@@ -1,5 +1,29 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Test the ComboBoxField should fil the optionslist 1`] = `
+<div>
+  <span>
+    testlbl
+  </span>
+  <select
+    className="form-control vertspace"
+    id="testkey"
+  />
+</div>
+`;
+
+exports[`Test the ComboBoxField should return a container with props set container 1`] = `
+<div>
+  <span>
+    testlbl
+  </span>
+  <select
+    className="form-control vertspace"
+    id="testkey"
+  />
+</div>
+`;
+
 exports[`Test the InputField should return a container with props set container 1`] = `
 <div>
   <span>
