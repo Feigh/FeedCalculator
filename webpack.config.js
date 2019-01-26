@@ -2,6 +2,7 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 var HtmlWebpackPluginConfig = new HtmlWebpackPlugin ({
     title: 'Mat beräknaren',
+    template: path.join(__dirname, "./template/index.html"),
     filename: "index.html",
     inject: 'body'
 });
