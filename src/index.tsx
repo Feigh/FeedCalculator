@@ -1,5 +1,5 @@
-import * as React from 'react';
-import * as ReactDOM from "react-dom";
+var React = require('react');
+var ReactDOM = require('react-dom');
 import App  from "./components/App";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'react-select';
