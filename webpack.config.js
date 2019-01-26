@@ -1,5 +1,11 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+var HtmlWebpackPluginConfig = new HtmlWebpackPlugin ({
+    title: 'Mat beräknaren',
+    template: path.join(__dirname, "./template/index.html"),
+    filename: "index.html",
+    inject: 'body'
+});
 
 module.exports = {
     entry: "./src/index.tsx",
@@ -7,14 +13,7 @@ module.exports = {
         filename: "bundle.js",
         path: __dirname + "/dist"
     },
-    plugins: [
-        new HtmlWebpackPlugin({
-            title: 'Matberäknaren',
-            template: path.join(__dirname, "./template/index.html"),
-            filename: "index.html",
-            inject: 'body'
-        })
-      ],
+    plugins: [ HtmlWebpackPluginConfig ],
     devtool: "source-map",
     resolve: {
         // Add '.ts' and '.tsx' as resolvable extensions.
